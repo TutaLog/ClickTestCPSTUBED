@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CPS Test Moderno</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="loader" id="loader">
@@ -19,17 +19,23 @@
             <div class="stat" id="cps">0<br>Click/s</div>
             <div class="stat" id="score">0<br>Score</div>
         </div>
-        <div class="click-area" id="click-area">CLICK HERE TO START PLAYING</div>
-        <div class="time-options">
-            <button onclick="startTest(1)">1 SECOND TEST</button>
-            <button onclick="startTest(2)">2 SECOND TEST</button>
-            <button onclick="startTest(5)" class="selected">5 SECOND TEST</button>
-            <button onclick="startTest(10)">10 SECOND TEST</button>
-            <button onclick="startTest(15)">15 SECOND TEST</button>
-            <button onclick="startTest(30)">30 SECOND TEST</button>
-            <button onclick="startTest(60)">60 SECOND TEST</button>
-            <button onclick="startTest(100)">100 SECOND TEST</button>
+        <div class="click-area hidden" id="click-area">CLICK HERE TO START PLAYING</div>
+        <div class="countdown hidden" id="countdown"></div>
+        <div class="time-options" id="time-options">
+            <button onclick="startCountdown(1)">1 SECOND TEST</button>
+            <button onclick="startCountdown(2)">2 SECOND TEST</button>
+            <button onclick="startCountdown(5)" class="selected">5 SECOND TEST</button>
+            <button onclick="startCountdown(10)">10 SECOND TEST</button>
+            <button onclick="startCountdown(15)">15 SECOND TEST</button>
+            <button onclick="startCountdown(30)">30 SECOND TEST</button>
+            <button onclick="startCountdown(60)">60 SECOND TEST</button>
+            <button onclick="startCountdown(100)">100 SECOND TEST</button>
         </div>
+    </div>
+    <div class="results hidden" id="results">
+        <h2>Test Completato!</h2>
+        <p id="final-score"></p>
+        <button onclick="restartTest()">Riprova</button>
     </div>
     <script src="script.js"></script>
 </body>

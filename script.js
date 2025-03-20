@@ -13,34 +13,51 @@ function loadProgress() {
 setTimeout(loadProgress, 500);
 
 let clicks = 0;
-let startTime = 0;
 let testDuration = 5;
 let interval;
 
-function startTest(seconds) {
+function startCountdown(seconds) {
     testDuration = seconds;
-    document.getElementById("timer").innerHTML = `${seconds}<br>Timer`;
-    clicks = 0;
-    document.getElementById("cps").innerHTML = `0<br>Click/s`;
-    document.getElementById("score").innerHTML = `0<br>Score`;
-    startTime = new Date().getTime();
-    interval = setInterval(updateTimer, 1000);
+    document.getElementById("time-options").classList.add("hidden");
+    document.getElementById("countdown").classList.remove("hidden");
+    let count = 3;
+    let countdownInterval = setInterval(() => {
+        document.getElementById("countdown").innerText = count;
+        count--;
+        if (count < 0) {
+            clearInterval(countdownInterval);
+            document.getElementById("countdown").classList.add("hidden");
+            document.getElementById("click-area").classList.remove("hidden");
+            startTest();
+        }
+    }, 1000);
 }
 
-document.getElementById("click-area").addEventListener("click", function() {
-    if (startTime === 0) return;
+function startTest() {
+    clicks = 0;
+    let startTime = new Date().getTime();
+    interval = setInterval(() => {
+        let elapsed = (new Date().getTime() - startTime) / 1000;
+        if (elapsed >= testDuration) {
+            clearInterval(interval);
+            endTest();
+        }
+    }, 1000);
+}
+
+document.getElementById("click-area").addEventListener("click", () => {
     clicks++;
-    document.getElementById("score").innerHTML = `${clicks}<br>Score`;
 });
 
-function updateTimer() {
-    let elapsed = (new Date().getTime() - startTime) / 1000;
-    let remaining = testDuration - elapsed;
-    if (remaining <= 0) {
-        clearInterval(interval);
-        document.getElementById("timer").innerHTML = `0<br>Timer`;
-    } else {
-        document.getElementById("timer").innerHTML = `${Math.ceil(remaining)}<br>Timer`;
-        document.getElementById("cps").innerHTML = `${(clicks / elapsed).toFixed(2)}<br>Click/s`;
-    }
+function endTest() {
+    document.getElementById("main-content").classList.add("hidden");
+    document.getElementById("results").classList.remove("hidden");
+    let cps = (clicks / testDuration).toFixed(2);
+    document.getElementById("final-score").innerHTML = `Hai fatto ${clicks} click con una media di ${cps} CPS!`;
+}
+
+function restartTest() {
+    document.getElementById("results").classList.add("hidden");
+    document.getElementById("main-content").classList.remove("hidden");
+    document.getElementById("time-options").classList.remove("hidden");
 }

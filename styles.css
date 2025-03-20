@@ -72,24 +72,12 @@ body {
     border-radius: 10px;
     transition: transform 0.2s, background 0.3s;
 }
-.click-area:hover {
-    transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.2);
+.countdown {
+    font-size: 50px;
+    margin-top: 20px;
+    font-weight: bold;
 }
-.time-options button {
-    background: #444;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s, transform 0.2s;
-}
-.time-options button:hover {
-    background: #ff5722;
-    transform: scale(1.1);
-}
-.selected {
-    background: red;
+.results {
+    text-align: center;
+    padding: 20px;
 }
