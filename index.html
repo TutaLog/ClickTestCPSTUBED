@@ -1,0 +1,36 @@
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPS Test Moderno</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="loader" id="loader">
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <p id="progress-text">0%</p>
+    </div>
+    <div class="container hidden" id="main-content">
+        <h1>CPS TEST / CPS TESTER</h1>
+        <div class="stats">
+            <div class="stat" id="timer">0<br>Timer</div>
+            <div class="stat" id="cps">0<br>Click/s</div>
+            <div class="stat" id="score">0<br>Score</div>
+        </div>
+        <div class="click-area" id="click-area">CLICK HERE TO START PLAYING</div>
+        <div class="time-options">
+            <button onclick="startTest(1)">1 SECOND TEST</button>
+            <button onclick="startTest(2)">2 SECOND TEST</button>
+            <button onclick="startTest(5)" class="selected">5 SECOND TEST</button>
+            <button onclick="startTest(10)">10 SECOND TEST</button>
+            <button onclick="startTest(15)">15 SECOND TEST</button>
+            <button onclick="startTest(30)">30 SECOND TEST</button>
+            <button onclick="startTest(60)">60 SECOND TEST</button>
+            <button onclick="startTest(100)">100 SECOND TEST</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
