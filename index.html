@@ -1,40 +1,55 @@
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPS Test Moderno</title>
+    <title>CPS Test</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container" id="main-content">
-        <div class="header">CPS TEST / CPS TESTER</div>
-        <div class="stats">
-            <div class="stat purple" id="timer">0<br>Timer</div>
-            <div class="stat red" id="cps">0<br>Click/s</div>
-            <div class="stat green" id="score">0<br>Score</div>
-        </div>
-        <div class="click-area" id="click-area">CLICK HERE TO START PLAYING</div>
-        <div class="time-options">
-            <button onclick="selectTime(1)">1 SECOND TEST</button>
-            <button onclick="selectTime(2)">2 SECOND TEST</button>
-            <button onclick="selectTime(5)" class="selected">5 SECOND TEST</button>
-            <button onclick="selectTime(10)">10 SECOND TEST</button>
-            <button onclick="selectTime(15)">15 SECOND TEST</button>
-            <button onclick="selectTime(30)">30 SECOND TEST</button>
-            <button onclick="selectTime(60)">60 SECOND TEST</button>
-            <button onclick="selectTime(100)">100 SECOND TEST</button>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>CPS TEST / CPS TESTER</h1>
+        <div class="right-section">
+            <button>Trending 🔥</button>
+            <button>Clicker Game</button>
         </div>
     </div>
-    
-    <div id="result-modal" class="hidden">
-        <div class="result-content">
-            <h2>Your Rank is <span id="rank">Cheetah!</span></h2>
-            <p>You Clicked with the speed of <span id="final-cps">0</span> CPS</p>
-            <p><span id="total-clicks">0</span> Clicks in <span id="time-span">0</span> Seconds</p>
-            <button onclick="restartTest()">TRY AGAIN</button>
-        </div>
+
+    <!-- Statistiche -->
+    <div class="stats">
+        <div id="timer" class="stat">0<br>Timer</div>
+        <div id="cps" class="stat">0<br>Click/s</div>
+        <div id="score" class="stat">0<br>Score</div>
     </div>
-    
+
+    <!-- Area di Clic -->
+    <div id="click-area" class="click-area" onclick="registerClick()">
+        CLICK HERE TO START PLAYING
+    </div>
+
+    <!-- Selezione del Tempo -->
+    <div class="time-options">
+        <button onclick="setTime(1)">1 SECOND TEST</button>
+        <button onclick="setTime(2)">2 SECOND TEST</button>
+        <button class="selected" onclick="setTime(5)">5 SECOND TEST</button>
+        <button onclick="setTime(10)">10 SECOND TEST</button>
+        <button onclick="setTime(15)">15 SECOND TEST</button>
+        <button onclick="setTime(30)">30 SECOND TEST</button>
+        <button onclick="setTime(60)">60 SECOND TEST</button>
+        <button onclick="setTime(100)">100 SECOND TEST</button>
+    </div>
+
+    <!-- Risultati -->
+    <div id="results" class="results">
+        <h2>Check Your Score</h2>
+        <div class="rank">Your Rank is <span id="rank">-</span>!</div>
+        <div class="score-details">You clicked with the speed of <span id="final-cps">0.0</span> CPS</div>
+        <p id="rank-message"></p>
+        <button class="retry" onclick="restartGame()">TRY AGAIN 🔄</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
